@@ -1,33 +1,35 @@
-DROP TABLE IF EXISTS usuarios;
-
-CREATE TABLE IF NOT EXISTS usuarios (
-    id              INTEGER PRIMARY KEY,
-    nome            TEXT    NOT NULL,
-    dataNascimento  TEXT,
-    tipo            INTEGER,
-    ativado         INTEGER
-);
-
-INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (1,'teste 1','01-01-2000',1,1);
-INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (2,'teste 2','01-01-2001',1,1);
-INSERT INTO usuarios (id, nome, dataNascimento, tipo, ativado) values (3,'teste 3','01-01-2003',1,1);
-
-
-DROP TABLE IF EXISTS veiculos;
-
-CREATE TABLE IF NOT EXISTS veiculos (
-    id              INTEGER PRIMARY KEY,
-    placa           TEXT    NOT NULL,
-    modelo          TEXT,
-    cor             TEXT,
-    ano             INTEGER
-);
-
 DROP TABLE IF EXISTS logins;
 
 CREATE TABLE IF NOT EXISTS logins (
-    id              INTEGER PRIMARY KEY,
-    nome           TEXT    NOT NULL,
-    email          TEXT,
-    senha             TEXT
+    id             INTEGER PRIMARY KEY,
+    nome           TEXT NOT NULL,
+    email          TEXT NOT NULL,
+    senha          TEXT NOT NULL
 );
+
+DROP TABLE IF EXISTS servidor;
+
+CREATE TABLE IF NOT EXISTS servidor (
+    id             INTEGER PRIMARY KEY,
+    nome           TEXT NOT NULL,   
+    id_jogo        INTEGER NOT NULL,
+    FOREIGN KEY (id_jogo) REFERENCES jogos (id)
+);
+DROP TABLE IF EXISTS jogos;
+
+CREATE TABLE IF NOT EXISTS jogos (
+    id             INTEGER PRIMARY KEY,
+    nome           TEXT NOT NULL,   
+    id_categoria   INTEGER NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES categoria (id)
+);
+DROP TABLE IF EXISTS categoria;
+
+CREATE TABLE IF NOT EXISTS categoria (
+    id             INTEGER PRIMARY KEY,
+    nome           TEXT NOT NULL
+);
+
+INSERT INTO categoria (id, nome) VALUES (1, 'Ação');
+INSERT INTO categoria (id, nome) VALUES (2, 'Terror');
+INSERT INTO categoria (id, nome) VALUES (3, 'Aventura');

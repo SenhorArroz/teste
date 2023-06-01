@@ -25,6 +25,12 @@
         <li class="nav-item">
           <a class="nav-link" href="<?=route('logins')?>">Login</a>
         </li>
+        <li>
+          <a class="nav-link" href="<?=route('servidores')?>">Servidores</a>
+        </li>
+        <li>
+          <a class="nav-link" href="<?=route('jogos')?>">Jogos</a>
+        </li>
       </ul>
     </div>
   </div>
