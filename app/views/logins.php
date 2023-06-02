@@ -3,11 +3,12 @@
 
 <style>
     body{
-        background: -webkit-gradient(linear, left bottom, left top, from(#CCCCCC), to(#7d7d7d));
-        background: -moz-linear-gradient(top, #CCCCCC, #7d7d7d);
-        filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#CCCCCC', EndColorStr='#7d7d7d');
+        background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(#7d7d7d));
+        background: -moz-linear-gradient(top, #ffffff, #7d7d7d);
+        filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#7d7d7d');
     }
 </style>
+<div class="loginForm">
 <form method='POST' action='<?=route('logins/salvar/'._v($data,"id"))?>'>
 
 <label class='col-md-6'>
@@ -41,7 +42,7 @@
 <a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("logins")?>">Novo</a>
 
 </form>
-
+</div>
 <table class='table'>
 
     <tr>
@@ -66,5 +67,6 @@
 
     <?php endforeach; ?>
 </table>
+
 
 <?php include 'layout-bottom.php' ?>

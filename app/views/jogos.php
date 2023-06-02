@@ -3,9 +3,9 @@
 
 <style>
     body{
-        background: -webkit-gradient(linear, left bottom, left top, from(#CCCCCC), to(#7d7d7d));
-        background: -moz-linear-gradient(top, #CCCCCC, #7d7d7d);
-        filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#CCCCCC', EndColorStr='#7d7d7d');
+        background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(#fde507));
+        background: -moz-linear-gradient(top, #ffffff, #fde507);
+        filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#fde507');
     }
 </style>
 <form method='POST' action='<?=route('jogos/salvar/'._v($data,"id"))?>'>
@@ -50,7 +50,7 @@
                 <a href='<?=route("jogos/index/{$item['id']}")?>'>Editar</a>
             </td>
             <td><?=$item['nome']?></td>
-            <td><?=$item['id_categoria']?></td>
+            <td><?=$item['categoria']?></td>
             <td>
                 <a href='<?=route("jogos/deletar/{$item['id']}")?>'>Deletar</a>
             </td>

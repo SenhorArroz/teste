@@ -1,7 +1,8 @@
 <?php
 use models\Servidores;
 use models\Jogos;
-
+use models\Logins;
+use models\Membros;
 /**
 * Tutorial CRUD
 * Autor:Alan Klinger 05/06/2017
@@ -34,10 +35,22 @@ class ServidoresController {
 		#busca todos os registros
 		$send['lista'] = $model->all();
 
-		#recupera a lista com todos os modelos
+		#recupera a lista com todos os jogos
         $jogoModel = new Jogos();
         $send['jogos'] = $jogoModel->all();
 
+		#recupera a lista com todos os logins
+        $logModel = new Logins();
+        $send['nomes'] = $logModel->all();
+
+		#se estiver editando um servidor
+        if ($id != null){
+            #recupera todos os membrods já setados para esse servidor
+            $send['membros'] = $model->getMembros($id);
+        }
+		if ($id != null){
+            $send['jogoNome'] = $model->getJogo($id);
+        }
 		 #$send['id_categoria'] = [0=>"Escolha uma opção", 1=>"Jogos", 2=>"Filmes"];
 
 		#chama a view
@@ -55,6 +68,15 @@ class ServidoresController {
 			$id = $model->update($id, $_POST);
 		}
 		
+		 #se a id de um login/membro tiver sido enviada
+		 if (_v($_POST,'id_membros')){
+            $model = new Membros();
+            $dados = ["id_login"=> $_POST['id_membros'], "id_servidor"=>$id];
+            $model->save($dados);
+        }
+
+
+		
 		redirect("servidores/index/$id");
 	}
 
@@ -65,6 +87,15 @@ class ServidoresController {
 
 		redirect("servidores/index/");
 	}
+	function deletarMembro(int $idDoRelacionamento){
+       
+        $model = new Membros();
+        $rel = $model->findById($idDoRelacionamento);
+        $model->delete($idDoRelacionamento);
+
+        redirect("servidores/index/{$rel['id_servidor']}");
+    }
+
 
 
 }

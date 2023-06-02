@@ -33,3 +33,13 @@ CREATE TABLE IF NOT EXISTS categoria (
 INSERT INTO categoria (id, nome) VALUES (1, 'Ação');
 INSERT INTO categoria (id, nome) VALUES (2, 'Terror');
 INSERT INTO categoria (id, nome) VALUES (3, 'Aventura');
+
+DROP TABLE IF EXISTS membros;
+
+CREATE TABLE IF NOT EXISTS membros (
+    id             INTEGER PRIMARY KEY,
+    id_login       INTEGER NOT NULL,
+    id_servidor       INTEGER NOT NULL,
+    FOREIGN KEY (id_login) REFERENCES logins (id),
+    FOREIGN KEY (id_servidor) REFERENCES servidor (id)
+);
