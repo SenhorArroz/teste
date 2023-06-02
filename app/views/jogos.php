@@ -39,7 +39,7 @@
     <tr>
         <th>Editar</th>
         <th>Nome</th>
-        <th>Id da categoria</th>
+        <th>Categoria</th>
         <th>Deletar</th>
     </tr>
 

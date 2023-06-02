@@ -16,7 +16,7 @@
 </label>
 
 <label class='col-md-6'>
-Id do jogo
+Jogo
     <select name="id_jogo" class="form-control">
         <?php
         foreach($jogos as $jogos){
@@ -64,7 +64,7 @@ Id do jogo
     <tr>
         <th>Editar</th>
         <th>Nome</th>
-        <th>Id do jogo</th>
+        <th>Jogo</th>
         <th>Deletar</th>
     </tr>
 
