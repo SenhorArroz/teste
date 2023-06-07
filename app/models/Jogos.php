@@ -11,7 +11,7 @@ class Jogos extends Model {
     public function findById($id){
         $sql = "SELECT jogos.*, categoria.nome AS categoria FROM {$this->table} "
                 ." LEFT JOIN categoria ON categoria.id = jogos.id_categoria "
-                ." WHERE veiculos.id = :id";
+                ." WHERE categoria.id = :id";
         $stmt = $this->pdo->prepare($sql);
         $data = [':id' => $id];
         $stmt->execute($data);
