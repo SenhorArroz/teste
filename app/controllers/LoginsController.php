@@ -30,9 +30,6 @@ class LoginsController {
 			$send['data'] = $model->findById($id);
 		}
 
-		#busca todos os registros
-		$send['lista'] = $model->all();
-
 		# $send['tipos'] = [0=>"Escolha uma opção", 1=>"Usuário comum", 2=>"Admin"];
 
 		#chama a view
@@ -40,26 +37,29 @@ class LoginsController {
 	}
 
 	
-	function salvar($id=null){
-
-		$model = new Logins();
-		
-		if ($id == null){
-			$id = $model->save($_POST);
-		} else {
-			$id = $model->update($id, $_POST);
-		}
-		
-		redirect("logins/index/$id");
-	}
-
-	function deletar(int $id){
-		
-		$model = new Logins();
-		$model->delete($id);
-
-		redirect("logins/index/");
-	}
+	function login(){
+        $send = [];
+        $model = new Logins;
+    
+        if(isset($_POST["email"]) && isset($_POST["senha"])){
+            $email = $_POST["email"];
+            $senha =  $_POST["senha"];
+        }else{
+            $email = "";
+            $senha =  "";
+        }
+        
+        $result = $model->findLogin($email, hash('sha256', $senha));
+        $send['data'] = $result;
+        $result = preg_replace('/\s*\[\s*["a-z]+\([0-9]+\)\]\s*/', '', print_r($send['data'], true));
+    
+        if($result != null){
+            $_SESSION['user'] = $send['data'];
+            redirect("telaprincipal"); 
+        } else {
+            redirect("logins");
+        }
+    }
 
 
 }

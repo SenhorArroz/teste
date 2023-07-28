@@ -1,30 +1,49 @@
-<?php include 'layout-top.php' ?>
-
-
-<style>
-    body{
-        background: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(#7d7d7d));
-        background: -moz-linear-gradient(top, #ffffff, #7d7d7d);
-        filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ffffff', EndColorStr='#7d7d7d');
-    }
-</style>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="<?=assets('cssmeu/estilo.css')?>"  />
+    <link rel="stylesheet" href="<?=assets('cssmeu/buttons.css')?>" type="text/css"/>
+    <script src="app/scripts/script.js"></script>
+</head>
+<?php if (isset($msg) && $msg != "") : ?>
+    <div class="alert alert-danger" role="alert">
+    <?=$msg?>
+    </div>
+<?php endif; ?>
+<body>
 <div class="loginForm">
-<form method='POST' action='<?=route('logins/salvar/'._v($data,"id"))?>'>
+<div class="organizacaoflex">
 
-<label class='col-md-6'>
-    Nome
-    <input type="text" class="form-control" name="nome" value="<?=_v($data,"nome")?>" >
-</label>
 
-<label class='col-md-2'>
-    Email
-    <input type="text" class="form-control" name="email" value="<?=_v($data,"email")?>" >
-</label>
-
-<label class='col-md-2'>
-    Senha
-    <input type="text" class="form-control" name="senha" value="<?=_v($data,"senha")?>" >
-</label>
+<div>
+    <img src="<?= assets("/imgs/gatoCadeado.png") ?>" class="imggatoCadeado">
+</div>
+<div class="container">
+        <div class="loginLocal">
+            <div class="form-container">
+                <p class="title">Login</p>
+                <br>
+                <form class="form" method='POST' action='<?=route('logins/login')?>'>
+                    
+                    <label for="myInput" class="label">
+                    <span class="label-title">Email</span>
+                    <input id="myInput" class="input" name="email" placeholder="" type="text" value="">
+                    </label>
+                    <br>
+                    <label for="myInput" class="label">
+                    <span class="label-title">Senha</span>
+                    <input id="myInput" class="input" name="senha" placeholder="" type="password" value="">
+                    </label>
+                    <br>
+                    <button class='Button_Cart' onclick="loginErrado()">Logar</button>
+                </form>
+                <br>
+                <p class="signup">Ainda não tem uma conta?
+                    <a href="<?=route('registro')?>" class="">Registrar</a>
+                </p>
+            </div>
+        </div>
+</div>
+</div>
 
 <!-- <label class='col-md-6'>
     Tipo
@@ -38,35 +57,7 @@
     </select>
 </label> -->
 
-<button class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
-<a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("logins")?>">Novo</a>
 
-</form>
-</div>
-<table class='table'>
-
-    <tr>
-        <th>Editar</th>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Deletar</th>
-    </tr>
-
-    <?php foreach($lista as $item): ?>
-
-        <tr>
-            <td>
-                <a href='<?=route("logins/index/{$item['id']}")?>'>Editar</a>
-            </td>
-            <td><?=$item['nome']?></td>
-            <td><?=$item['email']?></td>
-            <td>
-                <a href='<?=route("logins/deletar/{$item['id']}")?>'>Deletar</a>
-            </td>
-        </tr>
-
-    <?php endforeach; ?>
-</table>
-
+<!--<a class='btn btn-secondary col-12 col-md-3 mt-3' href="<#?=route("logins")?>">Novo</a>-->
 
 <?php include 'layout-bottom.php' ?>

@@ -4,7 +4,6 @@ session_start();
 * Framework simples MVC
 * Autor:Alan Klinger 05/06/2017
 */
-require 'app/sys/config.php';
 require 'app/sys/util.php';
 require 'app/sys/errors.php';
 #require 'sys/Pagination.php';
@@ -69,6 +68,11 @@ function route($route){
 function assets($route){
 	global $server_url;
 	return $server_url."public/".$route;
+}
+// Busca asset do profile
+function assetsProfile($route){
+	global $server_url;
+	return $server_url."app/profiles/".$route."/profileArqs";
 }
 
 /**
@@ -204,6 +208,18 @@ if ( count($parts) > 2 ){
 
 }
 
-
+foreach($_POST as $key=>$val){
+    $_SESSION['old'][$key] = $val;
+}
 //$obj->$metodo();
 call_user_func_array(array($controller, $metodo), $params_to_controller);
+
+$_SESSION['errors'] = [];
+$_SESSION['old'] = [];
+if (isset($_SESSION['flash'])){
+    foreach($_SESSION['flash'] as $key=>$val){
+        if ($_SESSION['flash'][$key]["out"]){
+            unset($_SESSION['flash'][$key]);
+        }
+    }
+}
