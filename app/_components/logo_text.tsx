@@ -1,7 +1,11 @@
 export default function LogoText() {
     return (
-        <div className="mt-12 lg:mt-32">
-            <img src="https://inclusaodigital.imd.ufrn.br/img/logo.png" alt="Logo" className="" />
+        <div className="min-h-250 flex items-center justify-center">
+            <img
+                src="https://inclusaodigital.imd.ufrn.br/img/logo.png"
+                alt="Logo"
+                className="w-full max-w-200 object-contain"
+            />
         </div>
     );
 }

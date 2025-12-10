@@ -11,19 +11,19 @@ export default function Navbar() {
     return (
         <div className="navbar bg-white backdrop-blur-md text-slate-700 shadow-sm border-b border-slate-100 sticky top-0 z-50">
 
-            <div className="navbar-start max-w-[80%] ">
-                <a className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-3 cursor-pointer select-none hover:opacity-75 transition-opacity duration-200">
-                    <span className="text-2xl font-bold text-blue-600 leading-none">
+            <div className="navbar-start max-w-[80%]">
+                <p className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-3 cursor-pointer select-none hover:opacity-75 transition-opacity duration-200">
+                    <span className="text-2xl font-bold text-blue-600 hover:text-yellow-500 duration-200 transition-colors leading-none">
                         ProEIDI
                     </span>
 
                     <span className="hidden lg:block w-px h-6 bg-slate-300"></span>
 
-                    <span className="text-xs lg:text-lg font-medium text-slate-600 leading-tight">
+                    <span className="text-xs lg:text-lg font-medium text-black leading-tight">
                         <span className="hidden lg:inline">Projeto de Extensão Inclusão Digital para Idosos</span>
                         <span className="lg:hidden">Extensão Inclusão Digital</span>
                     </span>
-                </a>
+                </p>
             </div>
 
             <div className="navbar-end justify-end hidden lg:flex">
@@ -32,10 +32,10 @@ export default function Navbar() {
                         <li key={index}>
                             <a
                                 href={link.href}
-                                className="text-base font-medium text-slate-600 hover:text-blue-600 hover:bg-transparent transition-colors duration-200 p-0 rounded-none relative group"
+                                className="text-base font-medium text-black hover:text-blue-600 hover:bg-transparent transition-colors duration-200 p-0 rounded-none relative group"
                             >
                                 {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
                             </a>
                         </li>
                     ))}
