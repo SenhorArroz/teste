@@ -1,6 +1,6 @@
 export default function LogoText() {
     return (
-        <div className="min-h-250 flex items-center justify-center">
+        <div className="min-h-300 flex items-center justify-center">
             <img
                 src="https://inclusaodigital.imd.ufrn.br/img/logo.png"
                 alt="Logo"
