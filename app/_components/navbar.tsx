@@ -1,7 +1,30 @@
+
+"use client";
+import { useState, useEffect } from "react";
 export default function Navbar() {
+    const [activeSection, setActiveSection] = useState("");
+    useEffect(() => {
+        const sections = document.querySelectorAll("section[id]");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    console.log("Estou vendo a seção:", entry.target.id);
+                    setActiveSection(entry.target.id);
+                }
+            });
+        }, {
+            rootMargin: "-20% 0px -20% 0px",
+        });
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+        };
+    }, []);
     const navLinks = [
-        { name: "Quem pode participar?", href: "#" },
-        { name: "Inscrições", href: "#" },
+        { name: "Quem pode participar?", href: "#participar" },
+        { name: "Inscrições", href: "#inscricoes" },
         { name: "Imagens", href: "#" },
         { name: "Notícias", href: "#" },
         { name: "Integrantes", href: "#" },
@@ -28,17 +51,31 @@ export default function Navbar() {
 
             <div className="navbar-end justify-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-4">
-                    {navLinks.map((link, index) => (
-                        <li key={index}>
-                            <a
-                                href={link.href}
-                                className="text-base font-medium text-black hover:text-blue-600 hover:bg-transparent transition-colors duration-200 p-0 rounded-none relative group"
-                            >
-                                {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
-                            </a>
-                        </li>
-                    ))}
+                    {navLinks.map((link, index) => {
+                        const sectionId = activeSection ? activeSection.toLowerCase() : "";
+                        const linkId = link.href.replace('#', '').toLowerCase();
+
+                        const isActive = sectionId === linkId;
+
+                        return (
+                            <li key={index}>
+                                <a
+                                    href={link.href}
+                                    className={`
+                    text-base font-medium transition-colors duration-200 p-0 rounded-none relative group
+                    ${isActive ? "text-blue-600 font-bold" : "text-black hover:text-blue-600"}
+                `}
+                                >
+                                    {link.name}
+
+                                    <span className={`
+                    absolute -bottom-1 left-0 h-0.5 bg-yellow-400 transition-all duration-300
+                    ${isActive ? "w-full" : "w-0 group-hover:w-full"}
+                `}></span>
+                                </a>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
 

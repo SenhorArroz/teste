@@ -65,7 +65,7 @@ export default function Onde() {
             ref={sectionRef}
             className="bg-sky-600 min-h-fit py-12 px-4 sm:px-6 md:py-24 md:px-8 overflow-hidden flex justify-center"
         >
-            <div
+            <div id='onde'
                 className={`
                     max-w-7xl w-full
                     transition-all duration-1000 ease-out transform 
@@ -75,7 +75,7 @@ export default function Onde() {
                     }
                 `}
             >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white text-center mb-10 md:mb-16 drop-shadow-md px-2">
+                <h1 className="text-2xl max-w-md mx-auto pb-2 sm:text-3xl md:text-4xl font-extrabold text-white text-center mb-10 md:mb-16 drop-shadow-md px-2 border-b-4 border-yellow-400">
                     O que você aprenderá?
                 </h1>
 
