@@ -25,7 +25,7 @@ export default function Navbar() {
     const navLinks = [
         { name: "Quem pode participar?", href: "#participar" },
         { name: "Inscrições", href: "#inscricoes" },
-        { name: "Imagens", href: "#" },
+        { name: "Imagens", href: "#galeria" },
         { name: "Notícias", href: "#" },
         { name: "Integrantes", href: "#" },
         { name: "Contatos", href: "#" },
