@@ -14,8 +14,8 @@ export default function Home() {
       <Participar />  
       <Inscricoes />
       <Galeria />
-      <Pessoal />
       <Noticias />
+      <Pessoal />
     </main>
   );
 }

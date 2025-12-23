@@ -27,7 +27,7 @@ export default function Navbar() {
         { name: "Inscrições", href: "#inscricoes" },
         { name: "Imagens", href: "#galeria" },
         { name: "Notícias", href: "#noticias" },
-        { name: "Integrantes", href: "#" },
+        { name: "Integrantes", href: "#pessoal" },
         { name: "Contatos", href: "#" },
     ];
 
