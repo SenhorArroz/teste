@@ -4,6 +4,7 @@ import Participar from "./_components/participar";
 import Inscricoes from "./_components/inscricoes";
 import Galeria from "./_components/galeria";
 import Noticias from "./_components/noticias";
+import Pessoal from "./_components/pessoal";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Participar />  
       <Inscricoes />
       <Galeria />
+      <Pessoal />
       <Noticias />
     </main>
   );
