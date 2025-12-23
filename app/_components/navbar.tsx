@@ -26,7 +26,7 @@ export default function Navbar() {
         { name: "Quem pode participar?", href: "#participar" },
         { name: "Inscrições", href: "#inscricoes" },
         { name: "Imagens", href: "#galeria" },
-        { name: "Notícias", href: "#" },
+        { name: "Notícias", href: "#noticias" },
         { name: "Integrantes", href: "#" },
         { name: "Contatos", href: "#" },
     ];
