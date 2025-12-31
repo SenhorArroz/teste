@@ -1,27 +1,11 @@
-
 "use client";
 import { useState, useEffect } from "react";
+
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("");
-    useEffect(() => {
-        const sections = document.querySelectorAll("section[id]");
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    console.log("Estou vendo a seção:", entry.target.id);
-                    setActiveSection(entry.target.id);
-                }
-            });
-        }, {
-            rootMargin: "-50% 0px -20% 0px",
-        });
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
-        return () => {
-            sections.forEach((section) => observer.unobserve(section));
-        };
-    }, []);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
     const navLinks = [
         { name: "Quem pode participar?", href: "#participar" },
         { name: "Inscrições", href: "#inscricoes" },
@@ -31,9 +15,53 @@ export default function Navbar() {
         { name: "Contatos", href: "#contatos" },
     ];
 
-    return (
-        <div className="navbar bg-white backdrop-blur-md text-slate-700 shadow-sm border-b border-slate-100 sticky top-0 z-50">
+    useEffect(() => {
+        const controlNavbar = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false);
+            } else {
+                setIsVisible(true);
+            }
 
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", controlNavbar);
+
+        return () => {
+            window.removeEventListener("scroll", controlNavbar);
+        };
+    }, [lastScrollY]);
+
+    useEffect(() => {
+        const sections = document.querySelectorAll("section[id]");
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        }, {
+            rootMargin: "-50% 0px -50% 0px",
+        });
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+        };
+    }, []);
+
+    return (
+        <div 
+            className={`
+                navbar bg-white/80 backdrop-blur-md text-slate-700 shadow-sm border-b border-slate-100 
+                fixed top-0 z-50 w-full transition-transform duration-300
+                ${isVisible ? 'translate-y-0' : '-translate-y-full'}
+            `}
+        >
             <div className="navbar-start max-w-[80%]">
                 <p className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-3 cursor-pointer select-none hover:opacity-75 transition-opacity duration-200">
                     <span className="text-2xl font-bold text-blue-600 hover:text-yellow-500 duration-200 transition-colors leading-none">
@@ -52,26 +80,23 @@ export default function Navbar() {
             <div className="navbar-end justify-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-4">
                     {navLinks.map((link, index) => {
-                        const sectionId = activeSection ? activeSection.toLowerCase() : "";
-                        const linkId = link.href.replace('#', '').toLowerCase();
-
-                        const isActive = sectionId === linkId;
+                        const linkId = link.href.replace('#', '');
+                        const isActive = activeSection.toLowerCase() === linkId.toLowerCase();
 
                         return (
                             <li key={index}>
                                 <a
                                     href={link.href}
                                     className={`
-                    text-base font-medium transition-colors duration-200 p-0 rounded-none relative group
-                    ${isActive ? "text-blue-600 font-bold" : "text-black hover:text-blue-600"}
-                `}
+                                        text-base font-medium transition-colors duration-200 p-0 rounded-none relative group
+                                        ${isActive ? "text-blue-600 font-bold" : "text-black hover:text-blue-600"}
+                                    `}
                                 >
                                     {link.name}
-
                                     <span className={`
-                    absolute -bottom-1 left-0 h-0.5 bg-yellow-400 transition-all duration-300
-                    ${isActive ? "w-full" : "w-0 group-hover:w-full"}
-                `}></span>
+                                        absolute -bottom-1 left-0 h-0.5 bg-yellow-400 transition-all duration-300
+                                        ${isActive ? "w-full" : "w-0 group-hover:w-full"}
+                                    `}></span>
                                 </a>
                             </li>
                         );
@@ -87,11 +112,18 @@ export default function Navbar() {
                         </svg>
                     </div>
                     <ul
-                        tabIndex={-1}
-                        className="menu menu-md dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow-xl border border-slate-100">
+                        tabIndex={0}
+                        className="menu menu-md dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow-xl border border-slate-100"
+                    >
                         {navLinks.map((link, index) => (
                             <li key={index}>
-                                <a href={link.href} className="text-slate-600 hover:text-blue-600">
+                                <a 
+                                    href={link.href} 
+                                    className={`
+                                        ${activeSection === link.href.replace('#', '') ? "text-blue-600 font-bold" : "text-slate-600"}
+                                        hover:text-blue-600
+                                    `}
+                                >
                                     {link.name}
                                 </a>
                             </li>
