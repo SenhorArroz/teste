@@ -13,7 +13,7 @@ export default function Navbar() {
                 }
             });
         }, {
-            rootMargin: "-20% 0px -20% 0px",
+            rootMargin: "-50% 0px -20% 0px",
         });
         sections.forEach((section) => {
             observer.observe(section);
@@ -28,7 +28,7 @@ export default function Navbar() {
         { name: "Imagens", href: "#galeria" },
         { name: "Notícias", href: "#noticias" },
         { name: "Integrantes", href: "#pessoal" },
-        { name: "Contatos", href: "#" },
+        { name: "Contatos", href: "#contatos" },
     ];
 
     return (

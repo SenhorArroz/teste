@@ -5,6 +5,7 @@ import Inscricoes from "./_components/inscricoes";
 import Galeria from "./_components/galeria";
 import Noticias from "./_components/noticias";
 import Pessoal from "./_components/pessoal";
+import Contatos from "./_components/contatos";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Galeria />
       <Noticias />
       <Pessoal />
+      <Contatos />
     </main>
   );
 }
