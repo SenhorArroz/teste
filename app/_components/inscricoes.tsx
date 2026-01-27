@@ -84,7 +84,7 @@ export default function Inscricoes() {
                     }
                 `}
             >
-                <h1 className="text-3xl max-w-md mx-auto md:text-4xl font-extrabold text-center text-white border-b-4 border-yellow-400 pb-3 mb-8 drop-shadow-md">
+                <h1 className="text-3xl max-w-md mx-auto md:text-4xl font-extrabold text-center text-white border-b-4 border-amber-500 pb-3 mb-8 drop-shadow-md">
                     Inscrições 2026.1
                 </h1>
 
@@ -92,8 +92,8 @@ export default function Inscricoes() {
                     Os cursos do PROEIDI irão começar! Confira as informações abaixo.
                 </p>
 
-                <div className="bg-yellow-400 rounded-xl p-6 shadow-lg mb-12 flex items-start gap-4 text-sky-900 max-w-3xl mx-auto">
-                    <div className="bg-yellow-200 p-2 rounded-full shrink-0">
+                <div className="bg-amber-500 rounded-xl p-6 shadow-lg mb-12 flex items-start gap-4 text-sky-950 max-w-3xl mx-auto">
+                    <div className="bg-amber-300 p-2 rounded-full shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                         </svg>
@@ -108,7 +108,7 @@ export default function Inscricoes() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-4xl mx-auto">
                     <div className="bg-white/10 border border-white/20 rounded-xl p-6 text-white backdrop-blur-sm flex items-start gap-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 text-yellow-300 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 text-amber-300 shrink-0">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                         </svg>
                         <div>
@@ -122,7 +122,7 @@ export default function Inscricoes() {
                     </div>
 
                     <div className="bg-white/10 border border-white/20 rounded-xl p-6 text-white backdrop-blur-sm flex items-start gap-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 text-yellow-300 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 text-amber-300 shrink-0">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.328l5.603 3.113z" />
                         </svg>

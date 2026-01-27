@@ -48,7 +48,7 @@ export default function Noticias() {
             
             <div className="max-w-6xl w-full">
                 <div className="flex justify-center">
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white border-b-4 border-yellow-400 pb-3 mb-8 drop-shadow-md self-start">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-white border-b-4 border-amber-500 pb-3 mb-8 drop-shadow-md self-start">
                         Últimas Notícias
                     </h2>
                 </div>

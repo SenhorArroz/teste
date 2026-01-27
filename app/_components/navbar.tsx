@@ -64,7 +64,7 @@ export default function Navbar() {
         >
             <div className="navbar-start max-w-[80%]">
                 <p className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-3 cursor-pointer select-none hover:opacity-75 transition-opacity duration-200">
-                    <span className="text-2xl font-bold text-blue-600 hover:text-yellow-500 duration-200 transition-colors leading-none">
+                    <span className="text-2xl font-bold text-blue-600 hover:text-amber-500 duration-200 transition-colors leading-none">
                         ProEIDI
                     </span>
 
@@ -94,7 +94,7 @@ export default function Navbar() {
                                 >
                                     {link.name}
                                     <span className={`
-                                        absolute -bottom-1 left-0 h-0.5 bg-yellow-400 transition-all duration-300
+                                        absolute -bottom-1 left-0 h-0.5 bg-amber-400 transition-all duration-300
                                         ${isActive ? "w-full" : "w-0 group-hover:w-full"}
                                     `}></span>
                                 </a>

@@ -74,7 +74,7 @@ export default function Pessoal() {
         >
             <div className="max-w-6xl w-full">
                 <div className="flex justify-center">
-                    <h2 className="text-3xl md:text-4xl max-w-md mx-auto font-extrabold text-white border-b-4 border-yellow-400 pb-3 mb-8 drop-shadow-md self-start">
+                    <h2 className="text-3xl md:text-4xl max-w-md mx-auto font-extrabold text-white border-b-4 border-amber-500 pb-3 mb-8 drop-shadow-md self-start">
                         Integrantes do projeto
                     </h2>
                 </div>
