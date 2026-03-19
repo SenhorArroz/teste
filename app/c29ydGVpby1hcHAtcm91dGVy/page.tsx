@@ -77,7 +77,7 @@ const SorteadorOrganico = () => {
   };
 
   return (
-    <div data-theme="light" className="min-h-screen bg-[#fcfdfe] flex flex-col items-center p-4 lg:p-10 font-sans text-slate-800">
+    <div data-theme="light" className="min-h-screen bg-[#fcfdfe] flex flex-col items-center p-4 lg:p-10 font-sans text-sky-600">
       
       <header className="w-full max-w-5xl flex flex-col items-center mb-8 animate-in fade-in duration-1000">
         <img 
@@ -132,7 +132,7 @@ const SorteadorOrganico = () => {
                   <span className="loading loading-spinner loading-lg text-primary/40"></span>
                   <div className="flex flex-col items-center">
                     <span className="text-[10px] font-black text-primary tracking-[0.4em] animate-pulse">PROCESSANDO</span>
-                    <span className="text-[8px] text-slate-300 font-mono mt-2">Entropy: {performance.now().toFixed(2)}ms</span>
+                    <span className="text-[8px] text-sky-600 font-mono mt-2">Entropy: {performance.now().toFixed(2)}ms</span>
                   </div>
                 </div>
               ) : results.length > 0 ? (
@@ -161,7 +161,7 @@ const SorteadorOrganico = () => {
               EXECUTAR SORTEIO
             </button>
 
-            <button onClick={resetar} className="text-[9px] font-black text-slate-300 hover:text-red-400 transition-colors uppercase tracking-[0.2em] text-center">Resetar Banco de Dados</button>
+            <button onClick={resetar} className="text-[9px] font-black text-sky-600 hover:text-red-400 transition-colors uppercase tracking-[0.2em] text-center">Resetar Banco de Dados</button>
 
             {/* BLACKLIST ESCONDIDA */}
             <div className="collapse opacity-[0.02] hover:opacity-40 transition-all">
@@ -197,7 +197,7 @@ const SorteadorOrganico = () => {
                   {num}
                 </div>
               ))}
-              {smartphoneHistory.length === 0 && <span className="text-[8px] font-bold text-slate-200 uppercase tracking-widest mt-10">Sem entradas</span>}
+              {smartphoneHistory.length === 0 && <span className="text-[8px] font-bold text-sky-600 uppercase tracking-widest mt-10">Sem entradas</span>}
             </div>
           </div>
 
@@ -215,7 +215,7 @@ const SorteadorOrganico = () => {
                   {num}
                 </div>
               ))}
-              {computerHistory.length === 0 && <span className="text-[8px] font-bold text-slate-200 uppercase tracking-widest mt-10">Sem entradas</span>}
+              {computerHistory.length === 0 && <span className="text-[8px] font-bold text-sky-600 uppercase tracking-widest mt-10">Sem entradas</span>}
             </div>
           </div>
 
