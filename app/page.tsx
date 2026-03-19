@@ -6,6 +6,7 @@ import Galeria from "./_components/galeria";
 import Noticias from "./_components/noticias";
 import Pessoal from "./_components/pessoal";
 import Contatos from "./_components/contatos";
+import Navbar from "./_components/navbar";
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <Noticias />
       <Pessoal />
       <Contatos />
+        <Navbar />
+
     </main>
   );
 }
