@@ -100,13 +100,13 @@ const SorteadorOrganico = () => {
               <div className="grid grid-cols-2 bg-sky-600/10 p-1 rounded-xl w-full border border-slate-100">
                 <button 
                   onClick={() => setDeviceType('Smartphone')}
-                  className={`py-3 rounded-lg text-[11px] font-black text-sky-600 tracking-widest transition-all ${deviceType === 'Smartphone' ? 'bg-white shadow-sm text-primary ring-1 ring-slate-200/50' : 'text-sky-600 opacity-60'}`}
+                  className={`py-3 rounded-lg text-[11px] font-black text-sky-600 tracking-widest transition-all ${deviceType === 'Smartphone' ? 'bg-white shadow-sm text-sky-600 ring-1 ring-slate-200/50' : 'text-sky-600 opacity-60'}`}
                 >
                   SMARTPHONE
                 </button>
                 <button 
                   onClick={() => setDeviceType('Computador')}
-                  className={`py-3 rounded-lg text-[11px] text-sky-600 font-black tracking-widest transition-all ${deviceType === 'Computador' ? 'bg-white shadow-sm text-primary ring-1 ring-slate-200/50' : 'text-sky-600 opacity-60'}`}
+                  className={`py-3 rounded-lg text-[11px] text-sky-600 font-black tracking-widest transition-all ${deviceType === 'Computador' ? 'bg-white shadow-sm text-sky-600 ring-1 ring-slate-200/50' : 'text-sky-600 opacity-60'}`}
                 >
                   COMPUTADOR
                 </button>
@@ -117,11 +117,11 @@ const SorteadorOrganico = () => {
             <div className="grid grid-cols-2 gap-6">
               <div className="form-control">
                 <label className="label"><span className="label-text font-black text-sky-600 text-[9px] uppercase tracking-wider">Range Inicial</span></label>
-                <input type="number" value={min} onChange={(e) => setMin(parseInt(e.target.value))} className="input input-bordered border-slate-100 bg-slate-50/50 text-center font-bold text-primary focus:bg-white" />
+                <input type="number" value={min} onChange={(e) => setMin(parseInt(e.target.value))} className="input input-bordered border-slate-100 bg-slate-50/50 text-center font-bold text-sky-600 focus:bg-white" />
               </div>
               <div className="form-control">
                 <label className="label"><span className="label-text font-black text-sky-600 text-[9px] uppercase tracking-wider">Range Final</span></label>
-                <input type="number" value={max} onChange={(e) => setMax(parseInt(e.target.value))} className="input input-bordered border-slate-100 bg-slate-50/50 text-center font-bold text-primary focus:bg-white" />
+                <input type="number" value={max} onChange={(e) => setMax(parseInt(e.target.value))} className="input input-bordered border-slate-100 bg-slate-50/50 text-center font-bold text-sky-600 focus:bg-white" />
               </div>
             </div>
 
@@ -129,15 +129,15 @@ const SorteadorOrganico = () => {
             <div className="relative py-8 bg-sky-600/5 rounded-[2.5rem] border border-slate-100 flex flex-col items-center justify-center min-h-[300px] overflow-hidden">
               {isAnimating ? (
                 <div className="flex flex-col items-center gap-5">
-                  <span className="loading loading-spinner loading-lg text-primary/40"></span>
+                  <span className="loading loading-spinner loading-lg text-sky-600/40"></span>
                   <div className="flex flex-col items-center">
-                    <span className="text-[10px] font-black text-primary tracking-[0.4em] animate-pulse">PROCESSANDO</span>
+                    <span className="text-[10px] font-black text-sky-600 tracking-[0.4em] animate-pulse">PROCESSANDO</span>
                     <span className="text-[8px] text-sky-600 font-mono mt-2">Entropy: {performance.now().toFixed(2)}ms</span>
                   </div>
                 </div>
               ) : results.length > 0 ? (
                 <div className="text-center animate-in zoom-in duration-500">
-                  <div className="text-[140px] font-black text-sky-600 leading-none text-primary tracking-tighter drop-shadow-lg">
+                  <div className="text-[140px] font-black text-sky-600 leading-none text-sky-600 tracking-tighter drop-shadow-lg">
                     {results[0]}
                   </div>
                   <div className="mt-6 px-6 py-1.5 bg-amber-500 text-white rounded-lg font-black text-[9px] uppercase tracking-[0.2em]">
@@ -187,7 +187,7 @@ const SorteadorOrganico = () => {
           <div className="flex-1 p-8 border-b border-slate-50 flex flex-col items-center min-h-[50%]">
             <div className="w-full flex justify-between items-center mb-8">
               <span className="text-[10px] font-black text-sky-600 uppercase tracking-widest">Smartphone</span>
-              <div className="h-6 px-3 flex items-center text-sky-600 bg-sky-600/5 text-primary rounded-full text-[13px] font-black">
+              <div className="h-6 px-3 flex items-center text-sky-600 bg-sky-600/5 text-sky-600 rounded-full text-[13px] font-black">
                 {smartphoneHistory.length} IDS
               </div>
             </div>
